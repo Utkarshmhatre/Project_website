@@ -31,12 +31,15 @@ function App() {
             transition={{ duration: 1 }}
             className="mb-12"
           >
-            <img
-              src="/peace-wings.png"
-              alt="RCOP Logo"
-              className="w-32 h-32 mx-auto mb-8 animate-float"
-              style={{ objectFit: 'contain', maxWidth: '100%', height: 'auto' }}
-            />
+            <div className="relative">
+              <div className="absolute inset-0 bg-yellow-500 rounded-full blur-lg opacity-50"></div>
+              <img
+                src="/peace-wings.png"
+                alt="RCOP Logo"
+                className="relative w-48 h-48 mx-auto mb-8 animate-float"
+                style={{ objectFit: 'contain', maxWidth: '100%', height: 'auto' }}
+              />
+            </div>
           </motion.div>
 
           <motion.div
@@ -62,12 +65,14 @@ function App() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="px-8 py-4 bg-golden-primary text-dark-primary rounded-full font-cinzel font-semibold hover:bg-golden-secondary transition-all duration-300"
+              onClick={() => window.open("https://culturalxchange.jimdosite.com/", "_blank")}
             >
               Join Our Mission
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               className="px-8 py-4 border border-golden-primary/30 rounded-full font-cinzel font-semibold hover:bg-golden-primary/10 transition-all duration-300"
+              onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
             >
               Learn More
             </motion.button>
