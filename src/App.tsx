@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 import Hero3D from './components/Hero3D';
 import Features from './components/Features';
 import Stats from './components/Stats';
@@ -77,16 +77,31 @@ function App() {
               Learn More
             </motion.button>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+          >
+            <span className="text-sm text-gray-400">Scroll to explore</span>
+            <ChevronDown className="w-6 h-6 text-golden-primary animate-bounce" />
+          </motion.div>
         </div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+          transition={{ duration: 1, delay: 1.5 }}
+          className="absolute bottom-16 right-16"
         >
-          <span className="text-sm text-gray-400">Scroll to explore</span>
-          <ChevronDown className="w-6 h-6 text-golden-primary animate-bounce" />
+          <motion.button
+            whileHover={{ scale: 1.2 }}
+            className="p-4 bg-golden-primary text-dark-primary rounded-full shadow-lg hover:bg-golden-secondary transition-all duration-300"
+            onClick={() => window.open("https://www.perplexity.ai", "_blank")}
+          >
+            <HelpCircle className="w-8 h-8" />
+          </motion.button>
         </motion.div>
       </section>
 
