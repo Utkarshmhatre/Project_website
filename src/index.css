@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --golden-primary: #D4AF37;
+  --golden-secondary: #C5A028;
+  --golden-accent: #FFE5B4;
+  --dark-primary: #0A0908;
+  --dark-secondary: #1A1815;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--dark-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--golden-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--golden-secondary);
+}
+
+/* Gradient text utilities */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-golden-primary via-golden-accent to-golden-secondary;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-dark-lighter/50 backdrop-blur-sm border border-golden-primary/10;
+}
+
+/* Hover effects */
+.hover-glow {
+  @apply hover:shadow-lg hover:shadow-golden-primary/20 transition-all duration-300;
+}
+
+/* Animation utilities */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Mask animations */
+.mask-reveal {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  animation: maskReveal 1s ease forwards;
+}
+
+@keyframes maskReveal {
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Timeline styles */
+.timeline-container {
+  @apply relative;
+}
+
+.timeline-line {
+  @apply absolute left-1/2 top-0 w-px h-full bg-golden-primary/30;
+}
+
+.timeline-item {
+  @apply relative flex items-center justify-center;
+}
+
+.timeline-content {
+  @apply w-1/2 p-6;
+}
+
+.timeline-dot {
+  @apply absolute left-1/2 w-4 h-4 rounded-full bg-golden-primary -translate-x-1/2;
+}
+
+/* Sticky footer */
+.footer {
+  @apply mt-auto bg-dark-primary border-t border-golden-primary/20;
+}
